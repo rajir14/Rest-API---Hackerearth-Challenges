@@ -1,0 +1,60 @@
+sudo apt-get install python3-pip
+which pip3
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+python
+pip -V
+sudo pip install django==1.10
+django-admin --version
+
+django-admin.py startproject scrum
+cd scrum
+python3 manage.py startapp board
+sudo pip install djangorestframework Markdown django-filter
+sudo pip install psycopg2
+createdb -E UTF-8 scrum
+sudo createdb -E UTF-8 scrum
+sudo apt-get install postgresql postgresql-contrib
+sudo -i -u postgres
+createdb -E UTF-8 scrum
+cd scrum/
+vi settings.py 
+python3 manage.py makemigrations board
+python3 manage.py migrate
+python3 manage.py createsuperuser
+python3 manage.py runserver
+
+
+raji@ICSCHE0145:~/$ curl -H 'Accept: application/json; indent=4' -u admin:raji@123 http://127.0.0.1:8000/api/tasks/
+[
+    {
+        "url": "http://127.0.0.1:8000/api/tasks/1/",
+        "id": 1,
+        "name": "raji",
+        "description": "this is to test",
+        "sprint": null,
+        "status": 2,
+        "order": 1,
+        "assigned": 1,
+        "started": "2017-02-01",
+        "due": "2017-02-07",
+        "completed": "2017-02-06"
+    }
+]raji@ICSCHE0145:~/$ curl -H 'Accept: application/json; indent=4' -u admin:raji@123 http://127.0.0.18000/api/users/
+[
+    {
+        "id": 1,
+        "username": "admin",
+        "full_name": "",
+        "is_active": true
+    }
+]raji@ICSCHE0145:~/$ curl -H 'Accept: application/json; indent=4' -u admin:raji@123 http://127.0.0.18000/api/sprints/
+[
+    {
+        "url": "http://127.0.0.1:8000/api/sprints/1/",
+        "id": 1,
+        "name": "raji",
+        "description": "this is to test",
+        "end": "2017-01-31"
+    }
+]
+
